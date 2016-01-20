@@ -5,58 +5,63 @@ This document lays out the routes users can take when interacting with slidewind
 
 ## route `home`
 
-slidewinder {{version}} {{logo}}
+> slidewinder `{{version}}` `{{logo}}`
 
-if (!setup) -> route `intial_setup`
+if (!`setup`) -> route `intial_setup`
 
 **what would you like to do?**
 
-- create a slide -> route `search_slides`
-- create a deck -> route `create deck`
-- present a deck -> route `present deck`
-- manage your slide library -> route `manage library`
-- get help -> route `help`
-- exit -> route `exit`
+- create a slide [-> route `search_slides`]
+- create a deck [-> route `create deck`]
+- present a deck [-> route `present deck`]
+- manage your slide library [-> route `manage library`]
+- get help [-> route `help`]
+- exit [-> route `exit`]
 
 ## route `intial_setup`
 
-It looks like this is your first time using slidewinder.
+> It looks like this is your first time using slidewinder.
 Let's get you set up - it won't take long.
 
-? your name -> `string`
-? where would you like to store slides by default? ->
+- ? your name -> `string`
+- ? where would you like to store slides by default? ->
     `string` directory chooser
 
 (set setup=true in global config)
 
-that's all we need for now, taking you back to slidewinder home ->
-  route `home`
+> that's all we need for now, taking you back to slidewinder
+  - [home -> route `home`]
 
 ## route `create_slide`
 
 **create a new slide**
 
-? title
-? author (suggest default)
-? style -> (choose slide generator template)
-? content -> based on template
-preview | save | done | save and make another
+- ? title -> `string`
+- ? author (suggest default) `string`
+- ? style -> (choose slide generator template)
+- ? content -> based on template
+
+[choices]:
+- preview [-> `slide.render` -> `open`]
+- save [-> `slide.flush`]
+- done [-> `slide.flush` -> route `home`]
+- save and make another [-> `slide.flush` -> route `create_slide`]
 
 ## route `create_deck`
 
 **create a new deck**
 
-? name
- ? author (suggest default)
-? slides ->
-  - find a slide -> route `search_slides`
-  - make a slide -> route `create_slide`
+- ? name
+- ? author (suggest default)
+- ? slides ->
+  - find a slide [-> route `search_slides`]
+  - make a slide [-> route `create_slide`]
 
 ## route `present_deck`
 
 **present a deck**
 
-search for the deck you want to present: -> route `search_decks`
+> search for the deck you want to present: [-> route `search_decks`]
 
 options ?? <- decide what these are
 - remote control options?
@@ -68,9 +73,9 @@ present -> generate deck and open in browser | cancel
 **manage library**
 
 What would you like to do?
-- create a collection -> route `create_collection`
-- manage existing collections -> route `search_collections`
-- manage slides -> route `search_slides`
+- create a collection [-> route `create_collection`]
+- manage existing collections [-> route `search_collections`]
+- manage slides [-> route `search_slides`[
 
 ## route `search_collections`
 
@@ -84,7 +89,7 @@ Start typing to search your collections.
 
 - dynamic list based on query
 
-when user selects a result -> route `collection_view`
+when user selects a result [-> route `collection_view`]
 
 ## route `collection_view`
 
@@ -102,9 +107,9 @@ slidewinder {{version}} {{logo}} help
 
 How can we help?
 
-1. learn how to use slidewinder -> docs website
-2. chat to slidewinder users and team -> gitter room
-3. report a bug -> github issues
+1. learn how to use slidewinder [-> `open` docs website]
+2. chat to slidewinder users and team [-> `open` gitter room]
+3. report a bug [-> `open` github issues]
 
 ## route `search_slides`
 
@@ -122,5 +127,6 @@ Start typing to search
 - create a new deck with this slide -> route `new_deck`
 - select
 
-OK -> route callback with selected slide IDs
-Cancel -> route callback null
+[choices]:
+  - OK [-> `route callback` selected slide IDs]
+  - cancel [-> `route callback` null]
