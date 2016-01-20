@@ -115,16 +115,17 @@ How can we help?
 
 **search your slide library**
 
-Start typing to search
+> Start typing to search
 
-> show dynamic list of slides matchinf query with a limit
-> can page through results
-> arrow keys select a slide, enter shows a menu for that slide
-> individual slide menu allows:
+show dynamic list of slides matchinf query with a limit
+can page through results
+arrow keys select a slide, enter shows a menu for that slide
+
+individual slide menu allows:
 - edit -> route `edit_slide`
 - add tags -> provide a field to add (autocompleted) tags
 - add to collection -> provide a field to enter (autocompleted) collection
-- create a new deck with this slide -> route `new_deck`
+- create a new deck with this slide -> route `new_deck` slide ID
 - select
 
 [choices]:
