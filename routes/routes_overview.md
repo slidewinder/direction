@@ -11,7 +11,7 @@ if (!`setup`) -> route `intial_setup`
 
 **what would you like to do?**
 
-- create a slide [-> route `search_slides`]
+- create a slide [-> route `create_slide`]
 - create a deck [-> route `create deck`]
 - present a deck [-> route `present deck`]
 - manage your slide library [-> route `manage library`]
